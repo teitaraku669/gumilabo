@@ -5,15 +5,18 @@ import Home from './pages/Home';
 import Details from './pages/Details';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { ApiProvider } from 'react-use-api'
 
 ReactDOM.render(
   <React.StrictMode>
-    <Router>
-      <Switch>
-        <Route exact path="/" component={Home}></Route>
-        <Route path="/details" component={Details}></Route>
-      </Switch>
-    </Router>
+    <ApiProvider>
+      <Router>
+        <Switch>
+          <Route exact path="/" component={Home}></Route>
+          <Route path="/details" component={Details}></Route>
+        </Switch>
+     </Router>
+    </ApiProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );
