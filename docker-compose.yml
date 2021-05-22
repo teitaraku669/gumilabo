@@ -22,8 +22,6 @@ services:
       - ./backend:/backend
     ports:
       - "3000:3000"
-    links:
-      - db
 
   frontend:
     build: ./frontend
@@ -34,5 +32,3 @@ services:
       - ./frontend:/frontend
     ports:
       - "8000:3000"
-    links:
-      - backend
