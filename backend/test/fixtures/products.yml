@@ -1,0 +1,19 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  type: 
+  flavor: MyString
+  company: MyString
+  price: 1
+  offical_url: MyString
+  amazon_url: MyString
+
+two:
+  name: MyString
+  type: 
+  flavor: MyString
+  company: MyString
+  price: 1
+  offical_url: MyString
+  amazon_url: MyString
