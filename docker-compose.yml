@@ -24,3 +24,15 @@ services:
       - "3000:3000"
     links:
       - db
+
+  frontend:
+    build: ./frontend
+    restart: always
+    tty: true
+    command: yarn start
+    volumes:
+      - ./frontend:/frontend
+    ports:
+      - "8000:3000"
+    links:
+      - backend
