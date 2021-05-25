@@ -14,11 +14,11 @@ const Home = () => {
       {error && <div>error</div>}
       {data && (
         data.map((product) => (
-          <>
+          <div key={product.id}>
             <li>{product.name}</li>
             <li>{product.company}</li>
             <li>{product.price}円</li>
-          </>
+          </div>
         ))
       )}
       <button onClick={request}>Reload</button>
