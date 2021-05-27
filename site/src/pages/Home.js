@@ -1,5 +1,5 @@
 import React from "react";
-import useApi from 'react-use-api'
+// import useApi from 'react-use-api'
 
 const Home = () => {
   // const [data, { loading, error }, request] = useApi({
@@ -7,9 +7,9 @@ const Home = () => {
   // })
   // {loading && <div>Loading...</div>}
   // {error && <div>error</div>}
-
-  data = [
-    {id: 1, name: "aaa", campany: "aabbdcc", price: 500},
+  // <button onClick={request}>Reload</button>
+  const data = [
+    [1,"aaa", "aabbdcc", 500],
 
   ]
   return (
@@ -19,14 +19,13 @@ const Home = () => {
 
       {data && (
         data.map((product) => (
-          <div key={product.id}>
-            <li>{product.name}</li>
-            <li>{product.company}</li>
-            <li>{product.price}円</li>
+          <div key={product[0]}>
+            <li>{product[1]}</li>
+            <li>{product[2]}</li>
+            <li>{product[3]}円</li>
           </div>
         ))
       )}
-      <button onClick={request}>Reload</button>
     </>
   );
 }
