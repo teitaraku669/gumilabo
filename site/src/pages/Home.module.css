@@ -1,0 +1,29 @@
+body {
+  color: rgb(50, 50, 50);
+}
+.title {
+  font-size: 40px;
+}
+
+.count {
+  font-weight: bold;
+}
+
+.product_list {
+  margin: 8px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.product_list > a {
+  text-decoration: none;
+  color: rgb(50, 50, 50);
+}
+
+.product {
+  margin: 8px;
+  padding: 8px;
+  border: solid;
+  width: 200px;
+  height: 200px;
+}
