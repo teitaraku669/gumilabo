@@ -1,16 +1,21 @@
+
 body {
-  color: rgb(50, 50, 50);
+  font-size: 12px;
 }
+
 .title {
-  font-size: 40px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  font-size: 32px;
 }
 
 .count {
   font-weight: bold;
+  padding-top: 8px;
+  padding-bottom: 8px;
 }
 
 .product_list {
-  margin: 8px;
   display: flex;
   flex-wrap: wrap;
 }
@@ -18,12 +23,42 @@ body {
 .product_list > a {
   text-decoration: none;
   color: rgb(50, 50, 50);
+  width: 25%;
+  height: 120px;
 }
 
 .product {
-  margin: 8px;
-  padding: 8px;
-  border: solid;
-  width: 200px;
-  height: 200px;
+}
+
+@media screen and (max-width: 480px) {
+  body {
+    font-size: 12px;
+  }
+
+  .title {
+    padding-top: 8px;
+    padding-bottom: 8px;
+    font-size: 32px;
+  }
+
+  .count {
+    font-weight: bold;
+    padding-top: 8px;
+    padding-bottom: 8px;
+  }
+
+  .product_list {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .product_list > a {
+    text-decoration: none;
+    color: rgb(50, 50, 50);
+    width: 50%;
+    height: 120px;
+  }
+
+  .product {
+  }
 }
