@@ -74,7 +74,7 @@ const Home = () => {
   const companys = ["なし", "UHA味覚糖", "カバヤ", "カンロ", "明治"]
   const [selectedConpany, setSelectedConpany] = useState(companys[0])
 
-  const conpanyOptions = () => (
+  const ConpanyOptions = () => (
     <>
       {companys.map((company, index) => (
         <option value={company} key={index}>{company}</option>
@@ -96,7 +96,7 @@ const Home = () => {
       <div className={HomeCss.title}>ぐみらぼ</div>
       <div className={HomeCss.count}>現在登録ぐみ数 {rowGumiData.length} 件です</div>
       <select value={selectedConpany} onChange={(event) => onCampanyChange(event)}>
-        {conpanyOptions()}
+        <ConpanyOptions />
       </select>
       <div className={HomeCss.product_list}>
       {gumiData && (
