@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import HomeCss from './Home.module.css';
 // import useApi from 'react-use-api'
 
@@ -9,7 +9,7 @@ const Home = () => {
   // {loading && <div>Loading...</div>}
   // {error && <div>error</div>}
   // <button onClick={request}>Reload</button>
-  const data = [
+  const rowGumiData = [
     ["UHA味覚糖", "コロロ", "コーラ", "http://uha-cororo.jp/"],
     ["UHA味覚糖", "コロロ", "ソーダ", "http://uha-cororo.jp/"],
     ["UHA味覚糖", "コロロ", "グレープ", "http://uha-cororo.jp/"],
@@ -68,15 +68,41 @@ const Home = () => {
     ["明治", "大人果汁グミ", "レモンピール", "https://www.meiji.co.jp/products/candy_gum/08552.html"],
     ["明治", "果汁グミ", "キッズグレープ＆マスカットミックス", "https://www.meiji.co.jp/products/candy_gum/03017.html"],
   ]
+
+  const [gumiData, setGumiData] = useState(rowGumiData)
+
+  const companys = ["なし", "UHA味覚糖", "カバヤ", "カンロ", "明治"]
+  const [selectedConpany, setSelectedConpany] = useState(companys[0])
+
+  const conpanyOptions = () => (
+    <>
+      {companys.map((company, index) => (
+        <option value={company} key={index}>{company}</option>
+      ))}
+    </>
+  )
+  
+  const onCampanyChange = (event) => {
+    if (event.target.value === "なし") {
+      setGumiData(rowGumiData)
+    } else {
+      setGumiData(rowGumiData.filter(gumi => gumi[0] === event.target.value))
+    }
+    setSelectedConpany(event.target.value);
+  }
+   
   return (
     <>
       <div className={HomeCss.title}>ぐみらぼ</div>
-      <div className={HomeCss.count}>現在登録ぐみ数 {data.length} 件です</div>
+      <div className={HomeCss.count}>現在登録ぐみ数 {rowGumiData.length} 件です</div>
+      <select value={selectedConpany} onChange={(event) => onCampanyChange(event)}>
+        {conpanyOptions()}
+      </select>
       <div className={HomeCss.product_list}>
-      {data && (
-        data.map((product, index) => (
-          <a href={product[3]} target="_blank" rel="noopener noreferrer">
-          <div key={index} className={HomeCss.product}>
+      {gumiData && (
+        gumiData.map((product, index) => (
+          <a key={index} href={product[3]} target="_blank" rel="noopener noreferrer">
+          <div className={HomeCss.product}>
             {product[0]}<br/>
             {product[1]}<br/>
             {product[2]}<br/>
