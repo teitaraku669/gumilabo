@@ -95,7 +95,7 @@ const Home = () => {
     <>
       <div className={HomeCss.title}>ぐみらぼ</div>
       <div className={HomeCss.count}>現在登録ぐみ数 {rowGumiData.length} 件です</div>
-      <select value={selectedConpany} onChange={(event) => onCampanyChange(event)}>
+      <select className={HomeCss.select_conpany} value={selectedConpany} onChange={(event) => onCampanyChange(event)}>
         <ConpanyOptions />
       </select>
       <div className={HomeCss.product_list}>
