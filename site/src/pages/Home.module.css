@@ -4,15 +4,13 @@ body {
 }
 
 .title {
-  padding-top: 8px;
-  padding-bottom: 8px;
+  margin: 8px;
   font-size: 32px;
 }
 
 .count {
   font-weight: bold;
-  padding-top: 8px;
-  padding-bottom: 8px;
+  margin: 8px;
 }
 
 .product_list {
@@ -41,15 +39,13 @@ body {
   }
 
   .title {
-    padding-top: 8px;
-    padding-bottom: 8px;
+    margin: 8px;
     font-size: 32px;
   }
 
   .count {
     font-weight: bold;
-    padding-top: 8px;
-    padding-bottom: 8px;
+    margin: 8px;
   }
 
   .product_list {
@@ -70,5 +66,6 @@ body {
 
   .select_conpany {
     font-size: 16px;
+    margin-left: 8px;
   }
 }
