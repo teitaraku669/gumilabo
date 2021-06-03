@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import HomeCss from './Home.module.css';
+import { useS3 } from '../hooks/useS3.js'
 // import useApi from 'react-use-api'
 
 const Home = () => {
@@ -9,6 +10,9 @@ const Home = () => {
   // {loading && <div>Loading...</div>}
   // {error && <div>error</div>}
   // <button onClick={request}>Reload</button>
+
+  const data = useS3();
+
   const rowGumiData = [
     ["UHA味覚糖", "コロロ", "コーラ", "http://uha-cororo.jp/"],
     ["UHA味覚糖", "コロロ", "ソーダ", "http://uha-cororo.jp/"],
@@ -24,7 +28,7 @@ const Home = () => {
     ["UHA味覚糖", "コグミ", "ビタミン系", "https://www.uha-mikakuto.co.jp/kogumi/"],
     ["UHA味覚糖", "さけるグミ", "巨峰", "https://www.uha-mikakuto.co.jp/sakeru/"],
     ["UHA味覚糖", "さけるグミ", "コーラ", "https://www.uha-mikakuto.co.jp/sakeru/"],
-    ["UHA味覚糖", "なが〜いさけるグミ", "巨峰", "https://www.uha-mikakuto.co.jp/sakeru/"], 
+    ["UHA味覚糖", "なが〜いさけるグミ", "巨峰", "https://www.uha-mikakuto.co.jp/sakeru/"],
     ["UHA味覚糖", "UHAグミサプリ", "めぐみアイ", "http://gummy-supple.com/lineup/megumiai.php"],
     ["UHA味覚糖", "UHAグミサプリ", "還元型コエンザイムQ10", "http://gummy-supple.com/lineup/coenzaimu.php"],
     ["UHA味覚糖", "UHAグミサプリ", "Ca鉄", "http://gummy-supple.com/lineup/kids_ca_fe.php"],
@@ -81,7 +85,7 @@ const Home = () => {
       ))}
     </>
   )
-  
+
   const onCampanyChange = (event) => {
     if (event.target.value === "なし") {
       setGumiData(rowGumiData)
@@ -90,7 +94,7 @@ const Home = () => {
     }
     setSelectedConpany(event.target.value);
   }
-   
+
   return (
     <>
       <div className={HomeCss.title}>ぐみらぼ</div>
@@ -99,17 +103,17 @@ const Home = () => {
         <ConpanyOptions />
       </select>
       <div className={HomeCss.product_list}>
-      {gumiData && (
-        gumiData.map((product, index) => (
-          <a key={index} href={product[3]} target="_blank" rel="noopener noreferrer">
-          <div className={HomeCss.product}>
-            {product[0]}<br/>
-            {product[1]}<br/>
-            {product[2]}<br/>
-          </div>
-          </a>
-        ))
-      )}
+        {gumiData && (
+          gumiData.map((product, index) => (
+            <a key={index} href={product[3]} target="_blank" rel="noopener noreferrer">
+              <div className={HomeCss.product}>
+                {product[0]}<br />
+                {product[1]}<br />
+                {product[2]}<br />
+              </div>
+            </a>
+          ))
+        )}
       </div>
     </>
   );
