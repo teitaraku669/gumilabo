@@ -20,7 +20,7 @@ export const useS3 = () => {
 
   useEffect(() => {
     s3.getObject({ Bucket: BUCKET, Key: FILE_NAME },
-      function (error, data) {
+      (error, data) => {
         if (error != null) {
         } else {
           setGumiData(data)
