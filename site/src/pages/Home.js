@@ -18,8 +18,9 @@ const Home = () => {
 
   if (data && gumiData.length <= 0) {
     setGumiData(convertCSVToArray(data.Body.toString("utf-8"), {
-      type: 'array',
-      separator: ',',
+      header: false,
+      type: 'object',
+      separator: '\t',
     }))
   }
 
@@ -53,11 +54,11 @@ const Home = () => {
       <div className={HomeCss.product_list}>
         {gumiData && (
           gumiData.map((product, index) => (
-            <a key={index} href={product[3]} target="_blank" rel="noopener noreferrer">
+            <a key={index} href={product.id} target="_blank" rel="noopener noreferrer">
               <div className={HomeCss.product}>
-                {product[0]}<br />
-                {product[1]}<br />
-                {product[2]}<br />
+                {product.company}<br />
+                {product.product}<br />
+                {product.type}<br />
               </div>
             </a>
           ))
