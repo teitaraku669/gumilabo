@@ -18,11 +18,13 @@ const Home = () => {
   const [gumiData, setGumiData] = useState([])
 
   if (data && rowGumiData.length <= 0) {
-    setRowGumiData(convertCSVToArray(data.Body.toString("utf-8"), {
+    const gumisObject = convertCSVToArray(data.Body.toString("utf-8"), {
       header: false,
       type: 'object',
       separator: '\t',
-    }))
+    })
+    setRowGumiData(gumisObject)
+    setGumiData(gumisObject)
   }
 
   const companys = ["なし", "UHA味覚糖", "カバヤ", "カンロ", "明治"]
