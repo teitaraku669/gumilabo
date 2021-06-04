@@ -14,10 +14,11 @@ const Home = () => {
 
   const data = useS3();
 
+  const [rowGumiData, setRowGumiData] = useState([])
   const [gumiData, setGumiData] = useState([])
 
-  if (data && gumiData.length <= 0) {
-    setGumiData(convertCSVToArray(data.Body.toString("utf-8"), {
+  if (data && rowGumiData.length <= 0) {
+    setRowGumiData(convertCSVToArray(data.Body.toString("utf-8"), {
       header: false,
       type: 'object',
       separator: '\t',
@@ -37,9 +38,9 @@ const Home = () => {
 
   const onCampanyChange = (event) => {
     if (event.target.value === "なし") {
-      setGumiData(gumiData)
+      setGumiData(rowGumiData)
     } else {
-      setGumiData(gumiData.filter(gumi => gumi[0] === event.target.value))
+      setGumiData(rowGumiData.filter(gumi => gumi.company === event.target.value))
     }
     setSelectedConpany(event.target.value);
   }
@@ -53,8 +54,8 @@ const Home = () => {
       </select>
       <div className={HomeCss.product_list}>
         {gumiData && (
-          gumiData.map((product, index) => (
-            <a key={index} href={product.id} target="_blank" rel="noopener noreferrer">
+          gumiData.map((product) => (
+            <a key={product.id} href={product.url} target="_blank" rel="noopener noreferrer">
               <div className={HomeCss.product}>
                 {product.company}<br />
                 {product.product}<br />
